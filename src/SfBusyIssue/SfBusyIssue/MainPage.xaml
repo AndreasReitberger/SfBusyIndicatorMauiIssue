@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SfBusyIssue.MainPage"
+             
+    xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    >
+    
+    <core:SfBusyIndicator
+     IsRunning="true"
+     >
+        <core:SfBusyIndicator.Style>
+            <Style TargetType="core:SfBusyIndicator">
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}"/>
+                <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource OffBlack}}" />
+                <Setter Property="Title" Value="Is loading..."/>
+                <Setter Property="TitlePlacement" Value="Bottom"/>
+                <Setter Property="FontSize" Value="{OnIdiom Tablet=12, Default=10}"/>
+                <!-- When the font here is set, the project throws an exception -->
+                <Setter Property="FontFamily" Value="OpenSansSemibold"/>
+            </Style>
+        </core:SfBusyIndicator.Style>
+        <ScrollView>
+            <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+                <Image
+                Source="dotnet_bot.png"
+                HeightRequest="185"
+                Aspect="AspectFit"
+                SemanticProperties.Description="dot net bot in a race car number eight" />
+
+                <Label
+                Text="Hello, World!"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+                <Label
+                Text="Welcome to &#10;.NET Multi-platform App UI"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
+
+                <Button
+                x:Name="CounterBtn"
+                Text="Click me" 
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Fill" />
+            </VerticalStackLayout>
+        </ScrollView>
+    </core:SfBusyIndicator>
+</ContentPage>
